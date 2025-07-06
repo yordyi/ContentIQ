@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "claude-commit": "bash .claude-hooks/auto-commit.sh",
+    "claude-setup": "bash .claude-hooks/setup-hooks.sh"
   },
   "dependencies": {
     "react": "^19.0.0",

@@ -1,0 +1,4 @@
+#!/bin/bash
+# Claude Code 快捷提交命令
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+./.claude-hooks/auto-commit.sh "$@"
