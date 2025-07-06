@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "claude-commit": "bash .claude-hooks/auto-commit.sh",
-    "claude-setup": "bash .claude-hooks/setup-hooks.sh"
+    "claude-setup": "bash .claude-hooks/setup-hooks.sh",
+    "claude-manage": "bash .claude-hooks/manage.sh",
+    "claude-watch": "bash .claude-hooks/watch-claude.sh"
   },
   "dependencies": {
     "react": "^19.0.0",

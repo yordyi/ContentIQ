@@ -12,7 +12,17 @@
 
 ## 使用方法
 
-### 1. 手动触发提交
+### 1. 图形化管理界面（推荐）
+
+```bash
+# 启动管理界面
+npm run claude-manage
+
+# 或直接执行
+./.claude-hooks/manage.sh
+```
+
+### 2. 手动触发提交
 
 ```bash
 # 方法1：直接执行脚本
@@ -25,7 +35,20 @@
 npm run claude-commit
 ```
 
-### 2. 自动触发（推荐）
+### 3. 监控服务管理
+
+```bash
+# 启动监控服务
+npm run claude-watch start --daemon
+
+# 停止监控服务
+npm run claude-watch stop
+
+# 查看监控状态
+npm run claude-watch status
+```
+
+### 4. 自动触发（推荐）
 
 在Claude Code完成编码任务后，系统会自动检测变更并提交。
 

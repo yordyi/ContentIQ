@@ -1,0 +1,31 @@
+# Claude Code Hooks 配置文件
+# 此文件用于自定义自动提交系统的行为
+
+# 监控设置
+WATCH_INTERVAL=5          # 监控间隔（秒）
+IDLE_TIMEOUT=300          # 空闲超时时间（秒，默认5分钟）
+
+# 自动提交设置
+AUTO_COMMIT_ENABLED=true  # 是否启用自动提交
+AUTO_PUSH_ENABLED=true    # 是否启用自动推送
+
+# 提交消息设置
+COMMIT_PREFIX="feat"      # 默认提交类型前缀
+INCLUDE_STATS=true        # 是否包含统计信息
+
+# 文件过滤设置
+WATCH_EXTENSIONS="ts,tsx,js,jsx,md,json,css,scss"  # 监控的文件扩展名
+IGNORE_PATHS="node_modules,.git,.claude-hooks"     # 忽略的路径
+
+# 日志设置
+LOG_LEVEL="INFO"          # 日志级别: DEBUG, INFO, WARN, ERROR
+MAX_LOG_SIZE=10485760     # 最大日志文件大小（字节，默认10MB）
+
+# 高级设置
+BATCH_COMMIT=false        # 是否批量提交多个变更
+MIN_CHANGES=1             # 最小变更数量才触发提交
+MAX_COMMIT_INTERVAL=3600  # 最大提交间隔（秒，默认1小时）
+
+# 通知设置
+ENABLE_NOTIFICATIONS=false  # 是否启用系统通知
+NOTIFICATION_SOUND=true     # 是否播放通知声音 
