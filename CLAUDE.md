@@ -1,73 +1,73 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+本文件为 Claude Code (claude.ai/code) 在此代码库中工作时提供指导。
 
-## Development Commands
+## 开发命令
 
-### Core Commands
-- `npm run dev` - Start development server with Turbopack (faster than standard Next.js dev)
-- `npm run build` - Build production version
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint for code quality checks
+### 核心命令
+- `npm run dev` - 启动开发服务器（使用 Turbopack，比标准 Next.js 开发模式更快）
+- `npm run build` - 构建生产版本
+- `npm run start` - 启动生产服务器
+- `npm run lint` - 运行 ESLint 进行代码质量检查
 
-### Development Server
-The project uses Next.js 15.3.5 with Turbopack for faster development builds. The dev server typically runs on port 3000, but will automatically use an available port if 3000 is occupied.
+### 开发服务器
+项目使用 Next.js 15.3.5 和 Turbopack 以实现更快的开发构建。开发服务器通常运行在 3000 端口，但如果 3000 端口被占用，会自动使用其他可用端口。
 
-## Architecture Overview
+## 架构概览
 
-### Project Structure
-This is a Next.js 15 TypeScript application using the App Router pattern with a component-based architecture for an AI content value calculator.
+### 项目结构
+这是一个使用 App Router 模式的 Next.js 15 TypeScript 应用程序，采用基于组件的架构，用于构建 AI 内容价值计算器。
 
-### Key Architecture Patterns
+### 关键架构模式
 
-**State Management Flow:**
-- Main page (`src/app/page.tsx`) handles URL input and Calculator component visibility
-- Calculator component (`src/components/Calculator.tsx`) manages analysis state and mock data generation
-- State flows: URL input → Form submission → Calculator display → Analysis execution → Results display
+**状态管理流程：**
+- 主页面 (`src/app/page.tsx`) 处理 URL 输入和计算器组件的显示控制
+- 计算器组件 (`src/components/Calculator.tsx`) 管理分析状态和模拟数据生成
+- 状态流转：URL 输入 → 表单提交 → 计算器显示 → 分析执行 → 结果展示
 
-**Component Hierarchy:**
+**组件层次结构：**
 ```
-Home (page.tsx)
-├── URL Input Form
-├── Calculator Component (conditional render)
-│   ├── Analysis Button
-│   ├── Loading Spinner
-│   └── Results Display Grid
-└── Feature Cards Grid
+首页 (page.tsx)
+├── URL 输入表单
+├── 计算器组件（条件渲染）
+│   ├── 分析按钮
+│   ├── 加载动画
+│   └── 结果展示网格
+└── 功能卡片网格
 ```
 
-**Styling Architecture:**
-- Uses Tailwind CSS 4.0 with custom utility classes
-- Custom CSS classes in `globals.css`:
-  - `.glass-morphism` - Backdrop blur effect for cards
-  - `.gradient-text` - Text gradient utility
-  - `.float-animation` - Floating animation keyframes
-- Design system based on purple-blue gradient theme with glassmorphism effects
+**样式架构：**
+- 使用 Tailwind CSS 4.0 和自定义工具类
+- `globals.css` 中的自定义 CSS 类：
+  - `.glass-morphism` - 卡片的背景模糊效果
+  - `.gradient-text` - 文本渐变工具
+  - `.float-animation` - 浮动动画关键帧
+- 基于紫蓝色渐变主题和玻璃形态效果的设计系统
 
-### Component Design Patterns
+### 组件设计模式
 
-**Calculator Component Logic:**
-- Implements three-state pattern: idle → analyzing → results
-- Uses TypeScript interfaces for type safety on analysis results
-- Mock data generation with randomized realistic values
-- Async state management with proper loading states
+**计算器组件逻辑：**
+- 实现三状态模式：空闲 → 分析中 → 结果展示
+- 使用 TypeScript 接口确保分析结果的类型安全
+- 生成具有随机化真实值的模拟数据
+- 具有适当加载状态的异步状态管理
 
-**UI Patterns:**
-- Responsive grid layouts (mobile-first approach)
-- Conditional rendering based on state
-- Glassmorphism design with backdrop-blur effects
-- Hover states and smooth transitions
+**UI 模式：**
+- 响应式网格布局（移动优先方法）
+- 基于状态的条件渲染
+- 具有背景模糊效果的玻璃形态设计
+- 悬停状态和平滑过渡动画
 
-### TypeScript Configuration
-- Uses strict mode with path mapping (`@/*` → `./src/*`)
-- Client-side components marked with `"use client"` directive
-- Proper typing for React components and state management
+### TypeScript 配置
+- 使用严格模式和路径映射 (`@/*` → `./src/*`)
+- 客户端组件标记 `"use client"` 指令
+- React 组件和状态管理的适当类型定义
 
-### Current MVP Status
-The application currently generates mock analysis data. The Calculator component simulates a 2-second analysis process and returns randomized metrics including page count, word count, content uniqueness, estimated value, and quality scores.
+### 当前 MVP 状态
+应用程序目前生成模拟分析数据。计算器组件模拟 2 秒的分析过程，并返回随机化的指标，包括页面数量、词汇数量、内容独特性、估算价值和质量评分。
 
-### Future Development Considerations
-- Real website analysis will require API routes and web scraping capabilities
-- User authentication system for result history
-- Database integration for storing analysis results
-- API rate limiting for web scraping operations
+### 未来开发考虑
+- 真实网站分析将需要 API 路由和网页抓取功能
+- 用户认证系统用于结果历史记录
+- 数据库集成用于存储分析结果
+- 网页抓取操作的 API 速率限制
