@@ -25,7 +25,7 @@ export default function Home() {
             计算您的内容被AI训练的潜在价值
           </p>
           
-          <div className="glass-morphism rounded-2xl p-8 mb-12">
+          <div className="glass-morphism rounded-2xl p-8 mb-12 pulse-glow">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <input
@@ -39,7 +39,7 @@ export default function Home() {
               </div>
               <button
                 type="submit"
-                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-lg font-semibold rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-lg font-semibold rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl btn-hover-scale"
               >
                 开始分析
               </button>
@@ -49,19 +49,19 @@ export default function Home() {
           {showCalculator && <Calculator url={url} />}
 
           <div className="grid md:grid-cols-3 gap-8 text-left">
-            <div className="glass-morphism rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
+            <div className="glass-morphism rounded-xl p-6 hover:bg-white/20 transition-all duration-300 btn-hover-scale">
               <h3 className="text-xl font-semibold text-white mb-3">📊 内容分析</h3>
               <p className="text-gray-300">
                 分析您网站的内容质量、独特性和AI训练价值
               </p>
             </div>
-            <div className="glass-morphism rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
+            <div className="glass-morphism rounded-xl p-6 hover:bg-white/20 transition-all duration-300 btn-hover-scale">
               <h3 className="text-xl font-semibold text-white mb-3">💰 收益估算</h3>
               <p className="text-gray-300">
                 基于内容量和质量估算AI公司的潜在使用价值
               </p>
             </div>
-            <div className="glass-morphism rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
+            <div className="glass-morphism rounded-xl p-6 hover:bg-white/20 transition-all duration-300 btn-hover-scale">
               <h3 className="text-xl font-semibold text-white mb-3">🔒 权益保护</h3>
               <p className="text-gray-300">
                 了解如何保护您的内容权益并获得合理补偿

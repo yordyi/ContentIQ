@@ -20,14 +20,41 @@ export default function Calculator({ url }: CalculatorProps) {
     setIsAnalyzing(true);
     
     try {
+      // 模拟分析过程，显示更真实的进度
       await new Promise(resolve => setTimeout(resolve, 2000));
       
+      // 基于URL生成更真实的模拟数据
+      const urlHash = url.split('').reduce((a, b) => {
+        a = ((a << 5) - a) + b.charCodeAt(0);
+        return a & a;
+      }, 0);
+      
+      // 使用URL哈希值作为种子，生成一致的"分析结果"
+      const seededRandom = (seed: number) => {
+        const x = Math.sin(seed) * 10000;
+        return x - Math.floor(x);
+      };
+      
+      const basePages = Math.abs(urlHash) % 500 + 50;
+      const pagesMultiplier = seededRandom(Math.abs(urlHash) + 1) * 3 + 1;
+      const pageCount = Math.floor(basePages * pagesMultiplier);
+      
+      const wordsPerPage = Math.floor(seededRandom(Math.abs(urlHash) + 2) * 400 + 200);
+      const wordCount = pageCount * wordsPerPage;
+      
+      const uniqueContent = Math.floor(seededRandom(Math.abs(urlHash) + 3) * 60 + 30);
+      const quality = Math.floor(seededRandom(Math.abs(urlHash) + 4) * 30 + 65);
+      
+      // 基于内容量和质量计算估算价值
+      const baseValue = (wordCount / 1000) * (quality / 100) * (uniqueContent / 100);
+      const estimatedValue = Math.floor(baseValue * 100) + 500;
+      
       const mockResult = {
-        pageCount: Math.floor(Math.random() * 1000) + 100,
-        wordCount: Math.floor(Math.random() * 50000) + 10000,
-        uniqueContent: Math.floor(Math.random() * 80) + 20,
-        estimatedValue: Math.floor(Math.random() * 5000) + 1000,
-        quality: Math.floor(Math.random() * 40) + 60
+        pageCount,
+        wordCount,
+        uniqueContent,
+        estimatedValue,
+        quality
       };
       
       setResult(mockResult);
